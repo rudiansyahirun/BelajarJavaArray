@@ -1,6 +1,6 @@
 package Tugas.Week7;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -142,10 +142,51 @@ public class Main {
 			Tampilkan nilai paling tinggi!
 			Tampilkan nilai paling rendah!
 		*/
+		System.out.println("Soal 5");
+		System.out.println("------");
 		int[] nilai = {90,80,85,70,95};
-		
+		System.out.println("Nilai 5 orang Mahasiswa yang disimpan adalah:");
+		for (int i = 0; i < nilai.length; i++) {
+			System.out.print(nilai[i]);
+			if (i == (nilai.length - 2)) {
+				System.out.print(" dan ");
+			} else if (i < (nilai.length -2)) {
+				System.out.print(", ");
+			}
+		}
+		System.out.println();
+		int sumNilai = 0;
+		System.out.print("Nilai rata-ratanya: ");
+		for (int i = 0; i < nilai.length; i++) {
+			sumNilai += nilai[i];
+		}
+		float avg = sumNilai / nilai.length;
+		System.out.println(avg);
+		int max = Arrays.stream(nilai)
+		  .max()
+		  .getAsInt(); // nilai tertinggi
+		System.out.println("Nilai paling tinggi: " + max);
+		int min = Arrays.stream(nilai)
+		  .min()
+		  .getAsInt(); // nilai terendah
+		System.out.println("Nilai paling rendah: " + min);
+		System.out.println();
+
+
+		/*
+		 * Soal 6
+			Buatlah sebuah program Java yang menyimpan
+			data nilai 5 orang Mahasiswa. Kelima nilai ini
+			dimasukkan oleh pengguna.
+			Hitung dan tampilkan nilai rata-rata dari kelima
+			nilai tadi!
+			Tampilkan nilai paling tinggi!
+			Tampilkan nilai paling rendah!
+		*/
 	}
 }
 // COMPILE DI SHELL
-// javac Tugas/Week7/Main.java
-// java Tugas/Week7/Main
+/*
+javac Tugas/Week7/Main.java
+java Tugas/Week7/Main
+*/
