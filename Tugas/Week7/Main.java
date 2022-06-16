@@ -152,6 +152,8 @@ public class Main {
 				System.out.print(" dan ");
 			} else if (i < (nilai.length -2)) {
 				System.out.print(", ");
+			} else {
+				System.out.print(".");
 			}
 		}
 		System.out.println();
@@ -183,7 +185,148 @@ public class Main {
 			Tampilkan nilai paling tinggi!
 			Tampilkan nilai paling rendah!
 		*/
+		System.out.println("Soal 6");
+		System.out.println("------");
+		System.out.print("Berapa jumlah siswa: ");
+		int jmlSiswa = sc.nextInt();
+		int[] nilaiSiswa = new int[jmlSiswa];
+		for (int i = 0; i < jmlSiswa; i++) {
+			System.out.print("Nilai Siswa ke-" + (i + 1) + ": ");
+			nilaiSiswa[i] = sc.nextInt();
+		}
+		System.out.println("Nilai siswa yang disimpan adalah:");
+		for (int i = 0; i < nilaiSiswa.length; i++) {
+			System.out.print(nilaiSiswa[i]);
+			if (i == (nilaiSiswa.length - 2)) {
+				System.out.print(" dan ");
+			} else if (i < (nilaiSiswa.length -2)) {
+				System.out.print(", ");
+			} else {
+				System.out.print(".");
+			}
+		}
+		System.out.println();
+		int sumNilaiSiswa = 0;
+		System.out.print("Nilai rata-ratanya: ");
+		for (int i = 0; i < nilaiSiswa.length; i++) {
+			sumNilaiSiswa += nilaiSiswa[i];
+		}
+		float avgNilai = sumNilaiSiswa / nilaiSiswa.length;
+		System.out.println(avgNilai);
+		int maxNilai = Arrays.stream(nilaiSiswa)
+		  .max()
+		  .getAsInt(); // nilai tertinggi
+		System.out.println("Nilai paling tinggi: " + maxNilai);
+		int minNilai = Arrays.stream(nilaiSiswa)
+		  .min()
+		  .getAsInt(); // nilai terendah
+		System.out.println("Nilai paling rendah: " + minNilai);
+		System.out.println();
+
+
+		/*
+		 * Soal 7
+			Simpan data dari table berikut dengan menggunakan Array:
+			Tampilkan isi table dengan format:
+			Daftar Nilai Siswa
+			------------------------
+			No, Nama, Nilai
+			1, Parto, 65
+			2, Rendi, 80
+			3, Tina, 85
+			4, Wanda, 90
+			--------------------
+			Nilai Rata-Rata: 80
+			Nama dan Nilai Tertinggi: Nilai 90 diperoleh oleh Wanda
+			Nama dan Nilai Terendah: Nilai 65 diperoleh oleh Parto
+		*/
+		System.out.println("Soal 7");
+		System.out.println("------");
+		System.out.println("Daftar Nilai Siswa\n------------------------");
+		System.out.println("No, Nama, Nilai");
+		String[] tableNama = {"Parto", "Rendi", "Tina", "Wanda"};
+		int[] tableNilai = {65, 80, 85, 90};
+		for (int i = 0; i < tableNilai.length; i++) {
+			System.out.println((i + 1) + ", " + tableNama[i] + ", " + tableNilai[i]);
+		}
+		System.out.println("--------------------");
+		int sumTableNilai = 0;
+		System.out.print("Nilai Rata-Rata: ");
+		for (int i = 0; i < tableNilai.length; i++) {
+			sumTableNilai += tableNilai[i];
+		}
+		float avgTableNilai = sumTableNilai / tableNilai.length;
+		System.out.println(avgTableNilai);
+		int maxTableNilai = Arrays.stream(tableNilai).max().getAsInt();
+		System.out.println("Nama dan Nilai Tertinggi: Nilai " + maxTableNilai
+						  + " diperoleh oleh " + tableNama[findIndex(tableNilai, maxTableNilai)]);
+		int minTableNilai = Arrays.stream(tableNilai).min().getAsInt();
+		System.out.println("Nama dan Nilai Tertinggi: Nilai " + minTableNilai
+						  + " diperoleh oleh " + tableNama[findIndex(tableNilai, minTableNilai)]);
+		System.out.println();
+
+		
+		/*
+		 * Soal 8
+			Simpan data nama dan nilai siswa menggunakan Array, datanya diambil
+			dari input pengguna. Kemudian tampilkan data dengan format:
+			Daftar Nilai Siswa
+			------------------------
+			No, Nama, Nilai
+			1, Parto, 65
+			2, Rendi, 80
+			3, Tina, 85
+			4, Wanda, 90
+			--------------------
+			Nilai Rata-Rata: 80
+			Nama dan Nilai Tertinggi: Nilai 90 diperoleh oleh Wanda
+			Nama dan Nilai Terendah: Nilai 65 diperoleh oleh Parto
+		*/
+		System.out.println("Soal 8");
+		System.out.println("------");
+		String[] inputTableNama = new String[4];
+		int[] inputTableNilai = new int[4];
+		for (int i = 0; i < 4; i++) {
+			System.out.print("Input Nama Siswa" + (i + 1) + ". ");
+			inputTableNama[i] = sc.nextLine();
+		}
+		for (int i = 0; i < 4; i++) {
+			System.out.print("Input Nilai dari " + inputTableNama[i] + ": ");
+			inputTableNilai[i] = sc.nextInt();
+		}
+		System.out.println("Daftar Nilai Siswa\n------------------------");
+		System.out.println("No, Nama, Nilai");
+		for (int i = 0; i < inputTableNilai.length; i++) {
+			System.out.println((i + 1) + ", " + inputTableNama[i] + ", " + inputTableNilai[i]);
+		}
+		System.out.println("--------------------");
+		int sumInputedTableNilai = 0;
+		System.out.print("Nilai Rata-Rata: ");
+		for (int i = 0; i < inputTableNilai.length; i++) {
+			sumInputedTableNilai += inputTableNilai[i];
+		}
+		float avgInputedTableNilai = sumInputedTableNilai / inputTableNilai.length;
+		System.out.println(avgInputedTableNilai);
+		int maxInputedTableNilai = Arrays.stream(inputTableNilai).max().getAsInt();
+		System.out.println("Nama dan Nilai Tertinggi: Nilai " + maxInputedTableNilai
+						  + " diperoleh oleh " + inputTableNama[findIndex(inputTableNilai, maxInputedTableNilai)]);
+		int minInputedTableNilai = Arrays.stream(inputTableNilai).min().getAsInt();
+		System.out.println("Nama dan Nilai Tertinggi: Nilai " + minInputedTableNilai
+						  + " diperoleh oleh " + inputTableNama[findIndex(inputTableNilai, minInputedTableNilai)]);
 	}
+	public static int findIndex(int arr[], int t)
+    {
+        // Creating ArrayList
+        ArrayList<Integer> clist = new ArrayList<>();
+ 
+        // adding elements of array
+        // to ArrayList
+        for (int i : arr)
+            clist.add(i);
+ 
+        // returning index of the element
+        return clist.indexOf(t);
+    }
 }
 // COMPILE DI SHELL
 /*
